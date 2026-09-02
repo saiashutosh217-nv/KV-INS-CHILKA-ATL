@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATL Projects | PM SHRI KV INS Chilika</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+    }
+    .search-bar {
+      width: 60%; max-width: 600px; margin: 0 auto 50px; display: block;
+      padding: 15px 20px; font-size: 1.1rem; border-radius: 50px; border: none;
+      background: rgba(255,255,255,0.15); color: white; outline: none;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);   /* ← Yeh line change ki hai */
+      gap: 25px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .project-card {
+      background: rgba(30, 41, 59, 0.95);
+      border-radius: 20px;
+      padding: 25px;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+      height: 100%;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .name {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #e0f2fe;
+      margin-bottom: 12px;
+    }
+    .short-desc {
+      color: #cbd5e1;
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+    .read-more-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(to right, #3b82f6, #8b5cf6);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .read-more-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #1e2937;
+      max-width: 720px;
+      width: 92%;
+      border-radius: 20px;
+      padding: 40px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 2.8rem;
+      cursor: pointer;
+      color: #94a3b8;
+    }
+    .modal-content h2 {
+      color: #60a5fa;
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ATL Projects</h1>
+  <input type="text" id="search" class="search-bar" placeholder="Search projects..." onkeyup="searchFunction()">
+
+  <div class="projects-grid" id="projectsGrid"></div>
+
+  <!-- Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc" style="line-height:1.85; font-size:1.05rem; color:#e2e8f0;"></p>
+    </div>
+  </div>
+
+<script>
+const projects = [
+  {name:"Smart Dustbin", desc:"This project automatically detects person approaching and opens the lid. It also shows garbage level using LEDs. Very useful to maintain hygiene in schools and public places."},
+  {name:"Automatic Street Light", desc:"Uses LDR to automatically switch on street lights at night and off in morning. Helps in saving electricity and is a great example of smart energy management."},
+  {name:"Fire Alarm System", desc:"Detects fire or smoke and sounds loud alarm. Can be connected with GSM module to send alert message. Essential safety project for homes and buildings."},
+  {name:"Water Level Indicator", desc:"Shows water level in overhead tank with 4 LEDs and buzzer. Prevents wastage of water due to overflow. Very useful in houses and schools."},
+  {name:"Line Follower Robot", desc:"A robot that follows black line on white surface using IR sensors. Teaches basic robotics and PID control concepts."},
+  {name:"Smart Irrigation System", desc:"Automatically waters plants according to soil moisture level. Saves water and helps in better plant growth."},
+  {name:"Smart Door Lock", desc:"RFID or password based smart door lock system. Enhances security of rooms and labs."},
+  {name:"Rain Alarm", desc:"Detects rain and alerts with buzzer and LED. Useful for protecting clothes and vehicles."},
+  {name:"Solar Tracker", desc:"Solar panel automatically rotates towards sun to get maximum energy. Increases efficiency of solar system."},
+  {name:"Obstacle Avoiding Robot", desc:"Robot senses obstacle in front and automatically changes direction. Good beginner robotics project."},
+  {name:"Smart Helmet", desc:"Helmet that detects if rider is wearing it and alcohol consumption. Sends alert if rules are violated."},
+  {name:"Gas Leak Detector", desc:"Detects LPG or smoke leakage and gives alarm. Very important for kitchen safety."},
+  {name:"Bluetooth Controlled Car", desc:"Car controlled using mobile phone via Bluetooth. Fun and educational robotics project."},
+  {name:"Smart Parking System", desc:"Shows available parking slots using IR sensors. Reduces time wasted in finding parking."},
+  {name:"Digital Clock", desc:"Displays time, date and temperature using RTC module and LCD/OLED display."},
+  {name:"Temperature Monitoring System", desc:"Continuously monitors room or body temperature and shows on display with alert."},
+  {name:"Smart Fan", desc:"Fan speed automatically adjusts according to room temperature. Saves electricity."},
+  {name:"Voice Control System", desc:"Controls lights and fans using voice commands through mobile or microphone."},
+  {name:"Smart Mirror", desc:"Mirror that shows time, weather, news and calendar. Looks like normal mirror but smart inside."},
+  {name:"RFID Attendance System", desc:"Automatic attendance using RFID cards. Saves time and reduces proxy."},
+  {name:"Smart Traffic Light", desc:"Traffic lights that change according to vehicle density. Reduces traffic jam."},
+  {name:"Home Automation System", desc:"Controls entire home appliances using mobile or voice. Future of living."},
+  {name:"Air Pollution Monitor", desc:"Measures Air Quality Index (AQI) and shows PM2.5, CO2 levels."},
+  {name:"Water Quality Tester", desc:"Checks pH, turbidity and TDS level of drinking water."},
+  {name:"Gesture Control Robot", desc:"Robot controlled by hand gestures using accelerometer."},
+  {name:"Smart Glass for Blind", desc:"Helps blind people detect obstacles and read text using camera and AI."},
+  {name:"Smart Bag", desc:"Bag that alerts if forgotten or stolen and tracks location."},
+  {name:"Energy Meter", desc:"Measures electricity consumption and sends data to mobile."},
+  {name:"Drone Model", desc:"Basic working model of drone with motors and flight controller."},
+  {name:"AI Chatbot", desc:"A smart chatbot that answers questions related to school and projects."}
+];
+
+const grid = document.getElementById("projectsGrid");
+
+projects.forEach(proj => {
+  const card = document.createElement("div");
+  card.className = "project-card";
+  card.innerHTML = `
+    <h2 class="name">${proj.name}</h2>
+    <p class="short-desc">${proj.desc}</p>
+    <button class="read-more-btn">Read More</button>
+  `;
+  grid.appendChild(card);
+
+  card.querySelector(".read-more-btn").addEventListener("click", () => {
+    document.getElementById("modalTitle").textContent = proj.name;
+    document.getElementById("modalDesc").innerHTML = proj.desc + "<br><br>This project helps students learn practical electronics, coding, problem-solving, and innovation skills. It is cost-effective and perfect for ATL lab exhibitions and competitions.";
+    document.getElementById("projectModal").style.display = "flex";
+  });
+});
+
+function searchFunction() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.getElementsByClassName("project-card");
+  for (let i = 0; i < cards.length; i++) {
+    let title = cards[i].querySelector(".name").textContent.toLowerCase();
+    cards[i].style.display = title.includes(input) ? "" : "none";
+  }
+}
+
+function closeModal() {
+  document.getElementById("projectModal").style.display = "none";
+}
+</script>
+</body>
+</html>
+<!-- ====================== FOOTER ====================== -->
+<footer style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 40px 20px 30px; margin-top: 80px; text-align: center; border-top: 1px solid rgba(96, 165, 250, 0.3);">
+  <div style="max-width: 800px; margin: 0 auto;">
+    
+    <a href="https://youtube.com/@atlkvchilika292?si=SvTogTGwDmEN7zco" target="_blank" 
+       style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(to right, #ff0000, #cc0000); color: white; padding: 16px 36px; border-radius: 50px; font-size: 1.15rem; font-weight: 600; text-decoration: none; box-shadow: 0 10px 25px rgba(255,0,0,0.4); transition: all 0.3s;">
+      <span style="font-size: 1.4rem;">▶</span> 
+      Follow Us on YouTube
+    </a>
+
+    <p style="color: #94a3b8; margin-top: 18px; font-size: 1.05rem;">
+      PM SHRI KV INS Chilika ATL 
+    </p>
+    
+    <p style="color: #64748b; margin-top: 8px; font-size: 0.95rem;">
+      Stay updated with our latest activities, innovations & student achievements
+    </p>
+
+  </div>
+</footer>

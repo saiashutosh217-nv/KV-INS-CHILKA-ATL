@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our ATL Lab - Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Inter', system-ui, sans-serif; 
+            margin: 0;
+            padding: 0;
+        }
+        .content-wrapper {
+            max-width: 100%;
+            padding: 40px 20px;
+        }
+        .section {
+            background: #1a2333;
+            padding: 40px 30px;
+            border-radius: 12px;
+        }
+        .pdf-card {
+            transition: all 0.3s ease;
+        }
+        .pdf-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-white">
+    <div class="content-wrapper mx-auto">
+        
+        <a href="web.html" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-8 text-lg">
+            ← Back to ATL Lab
+        </a>
+
+        
+        <!-- =============== NEW: ATL MODULES SECTION =============== -->
+        <div class="section mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-400">📚 ATL Modules &amp; Resources</h2>
+            
+            <!-- Upload Area -->
+            <div class="bg-gray-800 border-2 border-dashed border-gray-600 hover:border-green-500 rounded-3xl p-12 text-center mb-10 transition-colors">
+                <input type="file" id="pdf-upload" accept="application/pdf" multiple class="hidden" onchange="handlePDFUpload(event)">
+                <label for="pdf-upload" class="cursor-pointer block">
+                    <i class="fas fa-file-pdf text-6xl text-red-400 mb-4"></i>
+                    <p class="text-xl font-semibold mb-1">Upload ATL Modules (PDF)</p>
+                    <p class="text-gray-400">Project guides, manuals, worksheets, etc.</p>
+                </label>
+            </div>
+
+            <!-- Uploaded PDFs List -->
+            <div id="pdf-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="web.html" 
+               class="inline-flex items-center gap-3 bg-white text-black font-semibold px-10 py-4 rounded-3xl hover:bg-gray-200">
+                ← Return to Main ATL Page
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let atlModules = [];
+
+        function loadModules() {
+            const saved = localStorage.getItem('atlModules');
+            if (saved) {
+                atlModules = JSON.parse(saved);
+            }
+            renderPDFList();
+        }
+
+        function saveModules() {
+            localStorage.setItem('atlModules', JSON.stringify(atlModules));
+        }
+
+        function handlePDFUpload(e) {
+            const files = e.target.files;
+            if (!files.length) return;
+
+            Array.from(files).forEach(file => {
+                if (file.type !== "application/pdf") {
+                    alert("Please upload only PDF files");
+                    return;
+                }
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    atlModules.unshift({
+                        name: file.name,
+                        data: ev.target.result,   // base64
+                        size: (file.size / 1024 / 1024).toFixed(2) + " MB"
+                    });
+                    saveModules();
+                    renderPDFList();
+                };
+                reader.readAsDataURL(file);
+            });
+
+            e.target.value = '';
+        }
+
+        function renderPDFList() {
+            const container = document.getElementById('pdf-list');
+            if (atlModules.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-2 text-center py-12 text-gray-400">
+                        <i class="fas fa-folder-open text-5xl mb-4"></i>
+                        <p>No modules uploaded yet</p>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = atlModules.map((module, index) => `
+                <div class="pdf-card bg-gray-800 rounded-2xl p-6 flex flex-col">
+                    <div class="flex items-start gap-4">
+                        <i class="fas fa-file-pdf text-5xl text-red-400 mt-1"></i>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-medium truncate">${module.name}</p>
+                            <p class="text-xs text-gray-500">${module.size}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 flex gap-3">
+                        <a href="${module.data}" target="_blank"
+                           class="flex-1 bg-blue-600 hover:bg-blue-700 text-center py-3 rounded-xl text-sm font-medium">
+                            <i class="fas fa-eye"></i> View
+                        </a>
+                        <a href="${module.data}" download="${module.name}"
+                           class="flex-1 bg-green-600 hover:bg-green-700 text-center py-3 rounded-xl text-sm font-medium">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                        <button onclick="deleteModule(${index})"
+                           class="bg-red-600 hover:bg-red-700 px-5 rounded-xl">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteModule(index) {
+            if (confirm("Delete this module?")) {
+                atlModules.splice(index, 1);
+                saveModules();
+                renderPDFList();
+            }
+        }
+
+        // Initialize
+        window.onload = loadModules;
+    </script>
+</body>
+</html>
+<!-- ====================== FOOTER ====================== -->
+<footer style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 40px 20px 30px; margin-top: 80px; text-align: center; border-top: 1px solid rgba(96, 165, 250, 0.3);">
+  <div style="max-width: 800px; margin: 0 auto;">
+    
+    <a href="https://youtube.com/@atlkvchilika292?si=SvTogTGwDmEN7zco" target="_blank" 
+       style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(to right, #ff0000, #cc0000); color: white; padding: 16px 36px; border-radius: 50px; font-size: 1.15rem; font-weight: 600; text-decoration: none; box-shadow: 0 10px 25px rgba(255,0,0,0.4); transition: all 0.3s;">
+      <span style="font-size: 1.4rem;">▶</span> 
+      Follow Us on YouTube
+    </a>
+
+    <p style="color: #94a3b8; margin-top: 18px; font-size: 1.05rem;">
+      PM SHRI KV INS Chilika ATL 
+    </p>
+    
+    <p style="color: #64748b; margin-top: 8px; font-size: 0.95rem;">
+      Stay updated with our latest activities, innovations & student achievements
+    </p>
+
+  </div>
+</footer>

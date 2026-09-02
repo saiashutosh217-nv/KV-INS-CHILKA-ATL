@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Principal - Jiban Mallick Raja</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background: #0a0a0a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+  }
+
+  .profile-card {
+    background: #0b1c4d;
+    max-width: 780px;
+    width: 100%;
+    border-radius: 24px;
+    padding: 50px 45px 40px;
+    border: 3px solid #e63946;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+
+  .photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 5px solid #e63946;
+    margin: 0 auto 25px;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+  }
+
+  .designation {
+    font-size: 1.25rem;
+    color: #ff6b6b;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+
+  .bio {
+    color: #e0e0e0;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    text-align: left;
+    margin-bottom: 35px;
+  }
+
+  .back-btn {
+    display: inline-block;
+    background: #e63946;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background: #c1121f;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .profile-card {
+      padding: 35px 22px 30px;
+    }
+    .name {
+      font-size: 1.6rem;
+    }
+    .bio {
+      font-size: 0.98rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="profile-card">
+    
+    <!-- Photo -->
+    <div class="photo">
+      <img src=".jpg" alt="Jiban Raja Mallick">
+    </div>
+
+    <!-- Name & Designation -->
+    <h1 class="name">Jiban Raja Mallick</h1>
+    <div class="designation">ATL-Instructor</div>
+
+    <!-- ATL-INSTRUCTOR Bio -->
+    <p class="bio">
+      Jiban Malick serves as the ATL Incharge and is dedicated to fostering innovation, creativity, and scientific thinking among students. He believes that practical learning and hands-on experiences are essential for developing future-ready skills. Through the Atal Tinkering Laboratory, he encourages students to explore robotics, coding, electronics, artificial intelligence, and emerging technologies. He regularly conducts workshops, project-based learning activities, and innovation challenges that inspire students to think creatively and solve real-world problems. His efforts help students build confidence, teamwork, leadership, and problem-solving abilities. He actively supports young innovators and guides them in transforming their ideas into meaningful projects. His commitment to STEM education continues to inspire students to become future scientists, engineers, innovators, and responsible contributors to society.
+    </p>
+
+    <!-- Back to Home Button -->
+    <a href="web.html" class="back-btn">← Back to Home</a>
+
+  </div>
+
+</body>
+</html>

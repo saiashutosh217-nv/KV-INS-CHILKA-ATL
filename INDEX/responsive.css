@@ -1,0 +1,112 @@
+/* Default for PC / Laptop */
+body {
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+p {
+    font-size: 18px;
+}
+
+
+/* Tablet Screen */
+@media (max-width: 900px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+}
+
+
+/* Mobile Screen */
+@media (max-width: 600px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+
+    /* Images mobile me fit */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* Buttons mobile friendly */
+    button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+
+    /* Cards / boxes */
+    .container,
+    .card {
+        width: 95%;
+        margin: auto;
+    }
+
+}
+
+
+/* Small Mobile */
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+}

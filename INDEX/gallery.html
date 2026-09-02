@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATL Achievements - PM SHRI KV INS Chilika</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top, #1e293b, #0f172a, #090d16);
+    color: white;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+}
+
+.header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* GRID CONTAINER */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 3D FLIP CONTAINER */
+.card-wrapper {
+    flex: 1 1 280px;
+    min-width: 280px;
+    height: 420px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* FLIPPED STATE */
+.card-wrapper.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* CARD FACES (GLASSMORPHISM EFFECT) */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.card-wrapper:hover .card-front {
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: rgba(15, 23, 42, 0.9);
+    border-color: #38bdf8;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+.card-front h2, .card-back h2 {
+    color: #facc15;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    line-height: 1.3;
+}
+
+/* TEXT AREA & SCROLLBAR */
+.text {
+    line-height: 1.65;
+    font-size: 0.93rem;
+    color: #cbd5e1;
+    overflow-y: auto;
+    padding-right: 6px;
+    flex-grow: 1;
+}
+
+.text::-webkit-scrollbar {
+    width: 4px;
+}
+.text::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+.text::-webkit-scrollbar-thumb {
+    background: rgba(56, 189, 248, 0.4);
+    border-radius: 4px;
+}
+
+/* BUTTONS */
+button {
+    margin-top: 18px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #38bdf8, #0284c7);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.25);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #7dd3fc, #0369a1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+}
+
+button.btn-back {
+    background: #334155;
+    color: #f8fafc;
+    box-shadow: none;
+}
+
+button.btn-back:hover {
+    background: #475569;
+}
+
+/* FOOTER */
+footer {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(16px);
+    padding: 40px 20px 30px;
+    margin-top: 60px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff0000, #b91c1c);
+    color: white;
+    padding: 14px 34px;
+    border-radius: 50px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(239, 68, 68, 0.5);
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .card-wrapper {
+        height: 420px;
+    }
+    .header h1 {
+        font-size: 2.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🏆 ATL Achievements</h1>
+    <p>PM SHRI KV INS Chilika</p>
+</div>
+
+<div class="container">
+
+  <!-- CARD 1 -->
+  <div class="card-wrapper">
+    <div class="card-inner">
+      <div class="card-front">
+        <div>
+          <h2>⭐ National & Regional Achievement</h2>
+          <p class="text">
+            OMM, a student of Class 10 B, has brought great pride to the school by achieving success at both regional and national levels. 
+            He participated in competitive innovation programs where students from across India showcased their ideas. 
+            His dedication and consistent hard work helped him stand out. 
+            . 
+            His achievement reflects the strength of ATL learning.
+          </p>
+        </div>
+        <button onclick="flipCard(this)">Read More ➔</button>
+      </div>
+      <div class="card-back">
+        <div>
+          <h2>⭐ More Details</h2>
+          <p class="text">
+            He also presented his ideas confidently in exhibitions and competitions. 
+            Teachers guided him throughout his journey. 
+            His success motivates other students to aim higher. 
+            The ATL lab provided all necessary support and tools. 
+            This achievement shows the power of innovation-based education. 
+            Students are inspired to explore science and technology. 
+            The school continues to support such talents. 
+         k.
+          </p>
+        </div>
+        <button class="btn-back" onclick="flipCard(this)">⬅ Go Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card-wrapper">
+    <div class="card-inner">
+      <div class="card-front">
+        <div>
+          <h2>🏅 ATL Participation</h2>
+          <p class="text">
+            Students actively participate in ATL competitions and exhibitions. 
+            They are encouraged to think creatively and solve real-world problems. 
+            Participation builds confidence and improves teamwork skills. 
+            Students attend workshops to learn new technologies. 
+            They present their ideas on different platforms.
+          </p>
+        </div>
+        <button onclick="flipCard(this)">Read More ➔</button>
+      </div>
+      <div class="card-back">
+        <div>
+          <h2>🏅 More Details</h2>
+          <p class="text">
+            ATL provides hands-on learning experience. 
+            Students learn coding, robotics, and electronics. 
+            They collaborate and share innovative ideas. 
+            Competitions improve communication and leadership skills. 
+            Students gain exposure to real-world challenges. 
+            Participation prepares them for future careers. 
+            The school ensures equal opportunities for all. 
+            Innovation culture is growing stronger every year.
+          </p>
+        </div>
+        <button class="btn-back" onclick="flipCard(this)">⬅ Go Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card-wrapper">
+    <div class="card-inner">
+      <div class="card-front">
+        <div>
+          <h2>🤖 Robotics Projects</h2>
+          <p class="text">
+            ATL students build robotics and automation projects. 
+            They create smart systems and innovative models. 
+            Projects include automation tools and sensor-based devices. 
+            Students learn programming and electronics. 
+            They use Arduino and robotics kits.
+          </p>
+        </div>
+        <button onclick="flipCard(this)">Read More ➔</button>
+      </div>
+      <div class="card-back">
+        <div>
+          <h2>🤖 More Details</h2>
+          <p class="text">
+            Hands-on learning improves understanding of concepts. 
+            Students experiment with new ideas. 
+            They participate in robotics competitions. 
+            Projects enhance logical thinking and creativity. 
+            Teachers guide students step-by-step. 
+            Lab environment encourages innovation. 
+            Students gain real-world technical skills. 
+            This prepares them for engineering careers.
+          </p>
+        </div>
+        <button class="btn-back" onclick="flipCard(this)">⬅ Go Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card-wrapper">
+    <div class="card-inner">
+      <div class="card-front">
+        <div>
+          <h2>🏫 School Excellence</h2>
+          <p class="text">
+            PM SHRI KV INS Chilika promotes innovation and creativity. 
+            The school provides modern ATL lab facilities. 
+            Students receive guidance from expert teachers. 
+            Environment supports curiosity and learning. 
+            Programs develop scientific thinking.
+          </p>
+        </div>
+        <button onclick="flipCard(this)">Read More ➔</button>
+      </div>
+      <div class="card-back">
+        <div>
+          <h2>🏫 More Details</h2>
+          <p class="text">
+            Workshops and seminars are regularly conducted. 
+            Students participate in national events. 
+            Focus is on 21st-century skills. 
+            Learning is practical and activity-based. 
+            ATL enhances innovation culture. 
+            Achievements reflect school dedication. 
+            Students are prepared for future challenges. 
+            The school stands for excellence in education.
+          </p>
+        </div>
+        <button class="btn-back" onclick="flipCard(this)">⬅ Go Back</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="max-width: 800px; margin: 0 auto;">
+    <a href="https://youtube.com/@atlkvchilika292?si=SvTogTGwDmEN7zco" target="_blank">
+      <span style="font-size: 1.2rem;">▶</span> 
+      Follow Us on YouTube
+    </a>
+    <p style="color: #94a3b8; margin-top: 18px; font-size: 1.05rem;">
+      PM SHRI KV INS Chilika ATL 
+    </p>
+    <p style="color: #64748b; margin-top: 8px; font-size: 0.95rem;">
+      Stay updated with our latest activities, innovations & student achievements
+    </p>
+  </div>
+</footer>
+
+<script>
+function flipCard(btn) {
+    let wrapper = btn.closest('.card-wrapper');
+    wrapper.classList.toggle('flipped');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronic Components Encyclopedia | 20 Core Components</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    
+    .container { max-width: 1400px; margin: 0 auto; }
+    
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    .search-bar {
+      width: 100%; max-width: 650px; margin: 30px auto 40px;
+      padding: 16px 24px; font-size: 1.05rem; border: 1px solid #334155;
+      border-radius: 50px; background: #1e293b; color: #f8fafc; outline: none;
+      display: block; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease;
+    }
+    
+    .search-bar:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 30px;
+    }
+
+    .component-card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .component-card:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 15px;
+    }
+
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      background: #0f172a;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #475569;
+      flex-shrink: 0;
+    }
+
+    .icon-box svg {
+      width: 36px;
+      height: 36px;
+      fill: #38bdf8;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .card-body {
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    .detail-section {
+      margin-bottom: 12px;
+    }
+
+    .detail-label {
+      font-weight: 600;
+      color: #38bdf8;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .detail-text {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .show-more-btn {
+      background: #3b82f6;
+      color: white;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .show-more-btn:hover { background: #2563eb; }
+
+    /* Modal Styling */
+    .modal {
+      display: none; position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85);
+      z-index: 1000; align-items: center; justify-content: center;
+      padding: 20px; backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background: #1e293b; max-width: 800px; width: 100%;
+      border-radius: 20px; padding: 30px; max-height: 90vh;
+      overflow-y: auto; position: relative; border: 1px solid #475569;
+    }
+
+    .close {
+      position: absolute; top: 20px; right: 20px;
+      font-size: 2rem; cursor: pointer; color: #94a3b8;
+    }
+
+    .close:hover { color: #ffffff; }
+
+    .modal-visual-box {
+      width: 100%; height: 180px; background: #0f172a;
+      border-radius: 12px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 25px; border: 1px solid #334155;
+    }
+
+    .modal-visual-box svg {
+      width: 100px; height: 100px; fill: #38bdf8;
+    }
+
+    .modal-section-title {
+      font-size: 1.1rem; color: #38bdf8; margin-top: 20px; margin-bottom: 8px;
+      font-weight: 600; text-transform: uppercase; border-bottom: 1px solid #334155;
+      padding-bottom: 4px;
+    }
+
+    .modal-text-block { color: #e2e8f0; font-size: 1rem; line-height: 1.7; }
+    .modal-list { margin-left: 20px; color: #cbd5e1; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>ELECTRONIC COMPONETS</h1>
+      <p class="subtitle">COMPONETS WITH SYMBOL,</p>
+    </header>
+
+    <input type="text" id="searchInput" class="search-bar"
+           placeholder="Search 20 components (e.g., Resistor, MOSFET, Zener, Optocoupler)..."
+           onkeyup="searchComponents()">
+
+    <div class="components-grid" id="componentsGrid"></div>
+  </div>
+
+  <!-- Detailed Modal -->
+  <div id="compModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle" style="color: #f8fafc; font-size: 1.8rem; margin-bottom: 15px;"></h2>
+      
+      <div class="modal-visual-box" id="modalIconContainer"></div>
+
+      <div class="modal-section-title">Deep Working Principle & Physics</div>
+      <div class="modal-text-block" id="modalWorking"></div>
+
+      <div class="modal-section-title">Pinout & Internal Design</div>
+      <div class="modal-text-block" id="modalPinout"></div>
+
+      <div class="modal-section-title">Technical Specifications</div>
+      <ul class="modal-list" id="modalSpecs"></ul>
+
+      <div class="modal-section-title">Practical Circuit Applications</div>
+      <ul class="modal-list" id="modalApps"></ul>
+
+      <div class="modal-section-title">Safety Precautions</div>
+      <ul class="modal-list" id="modalSafety"></ul>
+    </div>
+  </div>
+
+  <script>
+    const componentsData = [
+      {
+        id: 1,
+        name: "Resistor",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M2,12 H5 L7,6 L10,18 L13,6 L16,18 L18,12 H22" stroke="#38bdf8" stroke-width="2" fill="none"/></svg>`,
+        principle: "Resists electron flow using carbon or metal film, reducing electrical current and dividing voltage based on Ohm's Law (V = I × R).",
+        specsSummary: "Values: 0.1Ω to 10MΩ | Power: 0.25W, 0.5W, 1W | Tolerance: ±1%, ±5%",
+        applicationsSummary: "LED current limiting, Pull-up/Pull-down logic, Analog voltage division.",
+        detailedWorking: "A resistor restricts electrical current flow by converting excess electrical energy into heat. Carbon film resistors utilize a thin ceramic rod coated with carbon film, where a spiral groove cuts through to set an exact resistance path.",
+        pinout: "2-Pin non-polarized passive lead arrangement. Identified by color-coded bands printed around its body.",
+        specs: ["Resistance Range: 1 Ohm to 10 Mega-ohms", "Power Rating: 0.25W (1/4 Watt) standard", "Temperature Coefficient: ±100 ppm/°C"],
+        apps: ["Protecting LEDs from burning out", "Establishing reference voltages in sensor dividers", "Setting op-amp feedback gains"],
+        safety: ["Do not exceed maximum power rating (P = I²R) to prevent burning or smoking."]
+      },
+      {
+        id: 2,
+        name: "Capacitor",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M2,12 H9 M15,12 H22 M9,5 V19 M15,5 V19" stroke="#38bdf8" stroke-width="2" fill="none"/></svg>`,
+        principle: "Stores electrical charge electrostatically on two conducting metal plates separated by an insulating dielectric material.",
+        specsSummary: "Capacitance: 1pF to 10,000µF | Voltage: 10V to 450V DC | Types: Ceramic, Electrolytic",
+        applicationsSummary: "Power supply filtering, DC blocking, AC signal coupling, Noise suppression.",
+        detailedWorking: "When DC voltage is applied across terminals, an electric field builds across the dielectric layer, storing potential electrical energy. It blocks steady DC signals while allowing AC signals to pass.",
+        pinout: "Electrolytic: Long leg (+ Anode), Short leg (- Cathode with stripe). Ceramic: Non-polarized equal leads.",
+        specs: ["Capacitance: Farad scale (pF, nF, µF)", "Working Voltage Rating (WVDC)", "Equivalent Series Resistance (ESR)"],
+        apps: ["Smoothing ripple voltage in power adapters", "Decoupling high-frequency digital noise near ICs", "Timer oscillation circuits"],
+        safety: ["Observe correct polarity on electrolytic capacitors to prevent explosion under reverse bias voltage."]
+      },
+      {
+        id: 3,
+        name: "Light Emitting Diode (LED)",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M12,2 L2,14 H22 Z M12,14 V22 M2,2 H22" stroke="#38bdf8" stroke-width="2" fill="none"/></svg>`,
+        principle: "Semiconductor P-N junction device that emits light photons via electroluminescence when forward-biased.",
+        specsSummary: "Forward Voltage: 1.8V - 3.4V | Current: 10mA - 20mA | Types: 3mm, 5mm, SMD",
+        applicationsSummary: "Status indicators, Display backlights, Illumination panels, Optical sensors.",
+        detailedWorking: "When forward voltage is applied, electrons cross the semiconductor junction and recombine with electron holes, releasing energy in the form of visible light photons.",
+        pinout: "Polarized: Anode (+ long leg), Cathode (- short leg with flat notch on the casing rim).",
+        specs: ["Forward Voltage: Red ~2.0V, Blue/White ~3.2V", "Max Forward Current: 20mA", "Luminous Intensity"],
+        apps: ["Power status indicator lights", "7-segment numeric displays", "Optocoupler isolator transmitters"],
+        safety: ["Always use a series current-limiting resistor; direct connection to power burns the semiconductor junction instantly."]
+      },
+      {
+        id: 4,
+        name: "NPN BJT Transistor (BC547 / 2N2222)",
+        iconSvg: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M7,12 H11 M11,7 V17 M11,9 L17,6 M11,15 L17,18" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Current-controlled 3-terminal semiconductor switch where a small base current controls a much larger collector-to-emitter current.",
+        specsSummary: "Vceo: 45V | Collector Current (Ic): 100mA - 800mA | Gain (hFE): 100 - 800",
+        applicationsSummary: "Relay driving, Signal amplification, Microcontroller load switching.",
+        detailedWorking: "Injecting a small control current into the Base terminal opens a conduction channel across the N-P-N silicon layers, allowing heavy current flow from Collector to Emitter.",
+        pinout: "TO-92 Package: Pin 1 (Collector/Emitter), Pin 2 (Base), Pin 3 (Emitter/Collector depending on part code).",
+        specs: ["Max Collector Current: 100mA (BC547), 800mA (2N2222)", "Max Voltage Vceo: 45V DC", "Gain (hFE): 100 - 800"],
+        apps: ["Switching relays and buzzers from Arduino pins", "Audio signal preamp stages"],
+        safety: ["Always connect a base resistor (e.g., 1kΩ - 10kΩ) to prevent blowing out the Base-Emitter junction."]
+      },
+      {
+        id: 5,
+        name: "N-Channel Power MOSFET (IRFZ44N)",
+        iconSvg: `<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M8,8 V16 M12,8 V16 M16,8 V16 M8,12 H16" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Voltage-controlled semiconductor switch that uses electric field charge at the Gate terminal to control heavy currents.",
+        specsSummary: "Drain-Source Voltage: 55V | Continuous Current: 49A | Rds(on): 17mΩ",
+        applicationsSummary: "High-power DC motor PWM control, Solenoids, Battery chargers, Inverters.",
+        detailedWorking: "Applying threshold voltage to the Gate creates an electrostatic field that attracts electrons, opening a low-resistance N-channel between Drain and Source terminals.",
+        pinout: "TO-220 Package (Front View): Pin 1 = Gate (G), Pin 2 = Drain (D), Pin 3 = Source (S). Metal tab is linked to Drain.",
+        specs: ["Max Drain Current: 49 Amperes", "Gate Threshold Voltage (Vgs): 2.0V - 4.0V", "Low Resistance Rds(on): 0.017 Ohms"],
+        apps: ["PWM speed control of heavy DC motors", "High-power LED strip dimmers", "Solid-state power switching"],
+        safety: ["Extremely sensitive to Static Discharge (ESD). Connect a 10kΩ resistor between Gate and Source to ensure complete shutdown."]
+      },
+      {
+        id: 6,
+        name: "1N4007 PN Rectifier Diode",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M4,12 H8 M16,12 H20 M8,6 L16,12 L8,18 Z M16,6 V18" stroke="#38bdf8" stroke-width="2" fill="none"/></svg>`,
+        principle: "One-way electrical valve that conducts current in forward-bias direction while blocking reverse voltage flow.",
+        specsSummary: "Max Reverse Voltage: 1000V DC | Forward Current: 1.0A | Drop: ~0.7V",
+        applicationsSummary: "AC-to-DC rectification, Flyback inductive spike suppression, Reverse polarity protection.",
+        detailedWorking: "Constructed with a P-N semiconductor junction. Forward voltage shrinks the depletion layer allowing current to flow; reverse voltage widens the barrier to block flow.",
+        pinout: "Polarized: Anode (+ plain side), Cathode (- end marked with a distinct silver/white band).",
+        specs: ["Peak Repetitive Reverse Voltage: 1000V", "Average Forward Current: 1.0 Ampere", "Forward Voltage Drop: 0.7 Volts"],
+        apps: ["Bridge rectifiers in power supplies", "Flyback protection diode across relay coils and motor windings"],
+        safety: ["Ensure reverse voltage rating is not exceeded to avoid avalanche breakdown."]
+      },
+      {
+        id: 7,
+        name: "5V Electromechanical Relay Module",
+        iconSvg: `<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M7,8 V16 M12,8 V16 M17,8 V16" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Electromagnetic switch using a 5V DC low-voltage signal to mechanically toggle high-voltage AC or DC appliances.",
+        specsSummary: "Coil Voltage: 5V DC | Max Load: 250V AC @ 10A / 30V DC @ 10A | Opto-isolated",
+        applicationsSummary: "Home automation switches, AC light bulb control, Isolated heavy load control.",
+        detailedWorking: "Energizing the coil creates a magnetic field that pulls a spring-loaded armature, switching mechanical contacts from Normally Closed (NC) to Normally Open (NO).",
+        pinout: "Control Side: VCC, GND, IN (Signal). Load Terminals: NO (Normally Open), COM (Common), NC (Normally Closed).",
+        specs: ["Coil Trigger Voltage: 5V DC", "Max Switching Voltage: 250V AC / 30V DC", "Max Current: 10A"],
+        apps: ["Controlling 230V AC home lamps using microcontrollers", "Galvanic electrical isolation"],
+        safety: ["DANGER: High voltage AC mains can cause lethal shock. Never touch output screw terminals while energized!"]
+      },
+      {
+        id: 8,
+        name: "SG90 Micro Servo Motor",
+        iconSvg: `<svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2" stroke="#38bdf8" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="3" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Closed-loop positional motor system that rotates to precise angles (0° to 180°) based on PWM signal duty cycle.",
+        specsSummary: "Torque: 1.8 kg-cm | Operating Voltage: 4.8V - 6V DC | Rotation: 0° to 180°",
+        applicationsSummary: "Robotic arm joints, Pan-tilt camera mounts, Steering mechanisms, Grippers.",
+        detailedWorking: "Contains a DC motor, gear reduction box, position feedback potentiometer, and control IC. It compares input PWM pulse width with internal potentiometer position to hold target angles.",
+        pinout: "3-Wire Cable: Brown = Ground (GND), Red = Power (+5V), Orange = PWM Control Signal Input.",
+        specs: ["Operating Speed: 0.12 sec/60 degrees", "Weight: 9 grams", "PWM Frequency: 50Hz"],
+        apps: ["Robotic arm manipulation", "Smart door lock actuation", "RC vehicle steering servo"],
+        safety: ["Do not force the output horn by hand; doing so strips plastic internal gears."]
+      },
+      {
+        id: 9,
+        name: "NE555 Precision Timer IC",
+        iconSvg: `<svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="16" rx="1" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M2,6 H6 M2,10 H6 M2,14 H6 M2,18 H6 M18,6 H22 M18,10 H22 M18,14 H22 M18,18 H22" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Highly versatile timing integrated circuit capable of generating precise time delays, clock pulses, and square wave oscillations.",
+        specsSummary: "Supply Voltage: 4.5V - 15V DC | Max Output Current: 200mA | Modes: Astable, Monostable",
+        applicationsSummary: "LED pulse flashers, Tone generators, PWM motor speed control, Clock source.",
+        detailedWorking: "Features two internal comparators, a resistor divider ladder (1/3 and 2/3 VCC), a flip-flop, and a discharge transistor. External RC components set precise timing periods.",
+        pinout: "DIP-8 Package: 1=GND, 2=Trigger, 3=Output, 4=Reset, 5=Control Voltage, 6=Threshold, 7=Discharge, 8=VCC.",
+        specs: ["Timing Range: Microseconds to Hours", "High Current Sink/Source capability: 200mA", "Astable pulse oscillator mode"],
+        apps: ["Pulse width modulation speed controllers", "Tone generators and flasher circuits"],
+        safety: ["Pin 3 can directly drive small relays or buzzers up to 200mA; heavier loads require a switching transistor."]
+      },
+      {
+        id: 10,
+        name: "LM7805 Linear Voltage Regulator",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M4,6 H20 V12 H4 Z M7,12 V18 M12,12 V18 M17,12 V18" stroke="#38bdf8" stroke-width="2" fill="none"/></svg>`,
+        principle: "Steps down higher DC voltages (7V-25V) into a clean, rock-solid, regulated +5.0V DC output.",
+        specsSummary: "Output Voltage: Fixed +5.0V DC | Input Voltage: 7V - 25V DC | Current: Up to 1.5A",
+        applicationsSummary: "Powering microcontrollers, Logic circuits, Sensors, Benchtop power modules.",
+        detailedWorking: "Compares output voltage against an internal bandgap reference. Internal pass transistors adjust resistance dynamically to output a constant 5V, dissipating extra voltage as thermal heat.",
+        pinout: "TO-220 Package (Front View): Pin 1 = Unregulated Input (Vin), Pin 2 = Ground (GND), Pin 3 = Regulated Output (+5V).",
+        specs: ["Fixed Output: +5.0V ±4%", "Built-in Thermal Overload Protection", "Max Current: 1.5 Amperes"],
+        apps: ["Regulating 9V/12V batteries down to safe 5V for Arduino and digital logic ICs"],
+        safety: ["Generates significant thermal heat under heavy loads; attach a metal heat sink when drawing over 0.5A."]
+      },
+      {
+        id: 11,
+        name: "Tactile Push Button Switch",
+        iconSvg: `<svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2" stroke="#38bdf8" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Momentary electromechanical switch that closes an electrical connection only while physically depressed.",
+        specsSummary: "Contact Rating: 12V DC @ 50mA | Type: SPST Normally Open | Mounting: PCB Through-hole",
+        applicationsSummary: "User input buttons, Reset switches, Microcontroller digital trigger inputs.",
+        detailedWorking: "Pressing the button depresses an internal tiny curved metallic dome, bridging contacts underneath. Releasing it snaps the dome back, breaking the contact.",
+        pinout: "4 Pins arranged in pairs: Pins 1 & 2 are internally connected; Pins 3 & 4 are internally connected across the switch gap.",
+        specs: ["Switch Type: Momentary SPST (Single Pole Single Throw)", "Contact Resistance: <100mΩ", "Operating Force: ~160g"],
+        apps: ["Arduino user input buttons", "System reset triggers"],
+        safety: ["Mechanical switches suffer from contact bounce; apply software debouncing delays (~20ms) in code."]
+      },
+      {
+        id: 12,
+        name: "Light Dependent Resistor (LDR)",
+        iconSvg: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M12,7 C10,9 14,11 12,13 C10,15 14,17 12,17 M3,3 L7,7 M2,8 L6,10" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Photoresistor whose electrical resistance drops drastically as light intensity on its Cadmium Sulfide (CdS) surface increases.",
+        specsSummary: "Dark Resistance: ~1MΩ - 10MΩ | Bright Light Resistance: ~100Ω - 1kΩ | Spectrum: Visible Light",
+        applicationsSummary: "Automatic street lights, Solar trackers, Light alarms, Dusk-to-dawn sensors.",
+        detailedWorking: "Light striking the semiconductor surface frees bound electrons into the conduction band, significantly increasing electrical conductivity and lowering overall resistance.",
+        pinout: "2-Pin non-polarized radial leads with a clear epoxy-coated zig-zag sensor face.",
+        specs: ["Dark Resistance: > 1 Mega-ohm", "Light Resistance (10 Lux): 8kΩ to 20kΩ", "Response Time: ~20ms - 30ms"],
+        apps: ["Automatic street light control circuits", "Solar panel tracking systems", "Laser tripwire alarms"],
+        safety: ["Requires a series voltage divider resistor (e.g., 10kΩ) to convert resistance changes into usable analog voltage signals."]
+      },
+      {
+        id: 13,
+        name: "Zener Diode",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M4,12 H8 M16,12 H20 M8,6 L16,12 L8,18 Z M16,6 V10 M16,14 V18 M14,6 H16 M16,18 H18" stroke="#38bdf8" stroke-width="2" fill="none"/></svg>`,
+        principle: "A specialized diode designed to allow current to flow in reverse direction when a specific reverse breakdown voltage (Zener voltage) is reached.",
+        specsSummary: "Zener Voltage (Vz): 3.3V to 30V | Power Rating: 0.5W - 1.0W | Package: DO-35",
+        applicationsSummary: "Voltage regulation, Over-voltage protection, Reference voltage generators.",
+        detailedWorking: "When forward biased, it acts like a normal diode. In reverse bias, once the voltage hits its designed Zener voltage limit, quantum tunneling causes controlled breakdown without damaging the device, holding voltage constant.",
+        pinout: "Polarized: Anode (+), Cathode (- marked with a distinct black band).",
+        specs: ["Precision Zener Voltages (e.g., 5.1V, 12V)", "Power Dissipation: 500mW standard", "Fast transient response time"],
+        apps: ["Simple voltage regulator circuits", "Protecting microcontroller GPIO pins from voltage spikes", "Voltage level shifting"],
+        safety: ["Always connect a current-limiting resistor in series to prevent thermal destruction in reverse breakdown mode."]
+      },
+      {
+        id: 14,
+        name: "Optocoupler / Optoisolator (PC817)",
+        iconSvg: `<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M7,9 L10,12 L7,15 M17,9 V15 M12,10 L15,10 M12,14 L15,14" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Transfers electrical signals between two isolated circuits using light waves, providing complete optical and electrical isolation.",
+        specsSummary: "Isolation Voltage: 5000V RMS | Current Transfer Ratio (CTR): 50%-600% | Package: DIP-4",
+        applicationsSummary: "High-voltage noise isolation, Switching power supplies, PLC interface boards.",
+        detailedWorking: "An internal infrared LED converts an input electric current into light. An adjacent phototransistor receives this optical signal and conducts current on the secondary side with no direct electrical wire connection.",
+        pinout: "DIP-4 Package: Pin 1 = LED Anode (+), Pin 2 = LED Cathode (-), Pin 3 = Phototransistor Emitter, Pin 4 = Phototransistor Collector.",
+        specs: ["High Isolation Voltage: 5kV AC", "Max Collector Current: 50mA", "Compact 4-pin DIP footprint"],
+        apps: ["Preventing high-voltage AC feedback from blowing microcontrollers", "SMPS feedback loop isolation"],
+        safety: ["Keep primary input ground and secondary output ground strictly isolated for safety."]
+      },
+      {
+        id: 15,
+        name: "Schottky Diode (1N5819 / SS14)",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M4,12 H8 M16,12 H20 M8,6 L16,12 L8,18 Z M16,6 H18 V10 M14,14 H16 V18" stroke="#38bdf8" stroke-width="2" fill="none"/></svg>`,
+        principle: "A semiconductor diode with a metal-to-semiconductor junction, offering extremely fast switching speed and very low forward voltage drop.",
+        specsSummary: "Forward Voltage Drop: 0.2V - 0.4V | Peak Reverse Voltage: 40V | Max Current: 1A",
+        applicationsSummary: "High-frequency switching power supplies, Solar panel bypass, Reverse polarity protection.",
+        detailedWorking: "Uses a metal-semiconductor barrier instead of a P-N junction. This eliminates charge storage and allows ultra-fast recovery time with minimal power dissipation.",
+        pinout: "Polarized: Anode (+), Cathode (- marked with a band).",
+        specs: ["Very low forward drop (~0.3V vs ~0.7V in silicon diodes)", "Ultra-fast switching speed (<10ns)", "Low thermal resistance"],
+        apps: ["Buck-boost converter freewheel diodes", "Solar panel anti-reverse discharge protection"],
+        safety: ["Higher reverse leakage current compared to standard PN diodes; keep operating temperature in check."]
+      },
+      {
+        id: 16,
+        name: "Trim Potentiometer (Trimpot)",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M2,12 H6 L8,8 L11,16 L14,8 L17,16 L19,12 H22" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M12,4 V9 M10,6 L12,4 L14,6" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "A 3-terminal manually adjustable variable resistor used for calibrating electrical resistance and tuning circuit parameters.",
+        specsSummary: "Resistance Range: 100Ω to 1MΩ | Power Rating: 0.5W | Adjustment: Single / Multi-turn",
+        applicationsSummary: "LCD contrast tuning, Sensor threshold adjustment, Amplifier gain calibration.",
+        detailedWorking: "Rotating a small top screw moves a sliding mechanical wiper blade along a resistive carbon track, altering resistance ratios between the center wiper terminal and outer pins.",
+        pinout: "3 Pins: Pin 1 & Pin 3 (Outer resistive track terminals), Pin 2 (Center wiper output).",
+        specs: ["Standard Values: 10kΩ (103), 100kΩ (104)", "Rotational Life: ~200 cycles", "Through-hole breadboard compatible"],
+        apps: ["Adjusting LCD 16x2 contrast voltage (Pin 3 - V0)", "Setting comparator voltage trigger thresholds"],
+        safety: ["Designed for occasional calibration adjustments; do not use as a daily volume knob."]
+      },
+      {
+        id: 17,
+        name: "Current Sensing Resistor (Shunt)",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M2,12 H6 V8 H18 V16 H6 V12 H2" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M9,12 H15" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "A low-resistance precision resistor used to measure electrical current by converting current flow into a proportional voltage drop.",
+        specsSummary: "Resistance: 0.001Ω to 0.1Ω (1mΩ - 100mΩ) | Power: 1W to 5W | Tolerance: ±0.5%, ±1%",
+        applicationsSummary: "Battery management systems (BMS), Power meters, Motor current monitors.",
+        detailedWorking: "By placing a known ultra-low resistance directly in series with a load, current (I) can be calculated accurately by measuring tiny voltage drops (V) across it (I = V / R) without wasting power.",
+        pinout: "2-Pin heavy wire or 4-terminal Kelvin sense arrangement.",
+        specs: ["Sub-Ohm resistance values to minimize heat Loss", "High power dissipation rating", "Low Temperature Coefficient"],
+        apps: ["Over-current protection triggers", "Digital ammeters and battery capacity monitors"],
+        safety: ["Select high wattage ratings for heavy current lines to prevent thermal drift."]
+      },
+      {
+        id: 18,
+        name: "Crystal Oscillator",
+        iconSvg: `<svg viewBox="0 0 24 24"><rect x="7" y="6" width="10" height="12" rx="1" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M2,12 H7 M17,12 H22 M9,4 V20 M15,4 V20" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Uses mechanical resonance of a vibrating piezoelectric quartz crystal to create an extremely precise clock frequency signal.",
+        specsSummary: "Frequencies: 32.768kHz, 8MHz, 16MHz | Frequency Stability: ±20 ppm | Load Cap: 18pF-22pF",
+        applicationsSummary: "Microcontroller clocking (Arduino 16MHz), Real-time clocks (RTC), Radio transmitters.",
+        detailedWorking: "Applying voltage across the quartz crystal causes precise physical mechanical deformation. As it vibrates back and forth, it generates sharp, ultra-stable electrical frequency clock pulses.",
+        pinout: "2-Pin HC-49S metal package (Non-polarized). Connects alongside two small ceramic capacitors (22pF) to Ground.",
+        specs: ["High frequency accuracy and thermal stability", "Operating Temp: -20°C to +70°C", "Low jitter pulse output"],
+        apps: ["Providing master 16MHz timing ticks for ATmega328P processor", "RTC timekeeping modules"],
+        safety: ["Keep PCB traces from crystal to MCU pins as short as possible to avoid radio interference noise."]
+      },
+      {
+        id: 19,
+        name: "Varistor (MOV - Metal Oxide Varistor)",
+        iconSvg: `<svg viewBox="0 0 24 24"><path d="M2,12 H6 L8,6 L16,18 L18,12 H22" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M6,17 L18,7" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "A voltage-dependent resistor whose resistance drops sharply when exposed to high voltage surges, absorbing dangerous voltage spikes.",
+        specsSummary: "Varistor Voltage: 270V - 470V AC | Clamping Voltage: Up to 775V | Peak Surge: 1000A-4000A",
+        applicationsSummary: "AC power line surge protectors, Lightning protection, SMPS input stages.",
+        detailedWorking: "Under normal AC operating voltages, it behaves as an open circuit with high resistance. When a lightning or inductive spike hits, its resistance drops in nanoseconds to divert surge current safely to ground.",
+        pinout: "2-Pin radial lead disc arrangement (Non-polarized blue/yellow disc). Connected across AC line input.",
+        specs: ["High surge current absorption", "Fast response time (<25ns)", "Symmetrical bidirectional protection"],
+        apps: ["Mains AC surge protector strips", "Power supply input over-voltage protection"],
+        safety: ["Always place a fuse in series before the MOV; severe spikes cause the MOV to short and blow the fuse."]
+      },
+      {
+        id: 20,
+        name: "Diode Bridge Rectifier (MB10S / KBPC3510)",
+        iconSvg: `<svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2" stroke="#38bdf8" stroke-width="2" fill="none"/><path d="M12,2 V5 M12,19 V22 M2,12 H5 M19,12 H22 M8,8 L16,16 M16,8 L8,16" stroke="#38bdf8" stroke-width="2"/></svg>`,
+        principle: "Combines four rectifier diodes in a full-bridge configuration to convert alternating current (AC) inputs into direct current (DC) outputs.",
+        specsSummary: "Max Reverse Voltage: 600V - 1000V | Forward Current: 1A (SMD) to 35A (Metal block)",
+        applicationsSummary: "AC-to-DC adapters, Battery chargers, Mains powered electronics.",
+        detailedWorking: "During positive AC half-cycles, two internal diodes conduct. During negative half-cycles, the other two diodes conduct, ensuring current flows in a single uniform DC direction through the load terminals.",
+        pinout: "4 Pins: ~ and ~ (AC input pins), + (DC positive output), - (DC negative output).",
+        specs: ["Full-wave AC to DC rectification", "High peak surge current capability", "Compact single-package design"],
+        apps: ["Converting 230V/110V AC household electricity into pulsating DC in power supplies"],
+        safety: ["Requires smoothing capacitors right after DC output pins to remove voltage ripples."]
+      }
+    ];
+
+    function renderComponents(data) {
+      const grid = document.getElementById('componentsGrid');
+      grid.innerHTML = '';
+
+      if (data.length === 0) {
+        grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #94a3b8; padding: 40px;">No components found matching your search query.</p>';
+        return;
+      }
+
+      data.forEach(comp => {
+        const card = document.createElement('div');
+        card.className = 'component-card';
+        card.innerHTML = `
+          <div>
+            <div class="card-header">
+              <div class="icon-box">${comp.iconSvg}</div>
+              <div class="card-title">${comp.name}</div>
+            </div>
+
+            <div class="card-body">
+              <div class="detail-section">
+                <div class="detail-label">Working Principle</div>
+                <div class="detail-text">${comp.principle}</div>
+              </div>
+
+              <div class="detail-section">
+                <div class="detail-label">Key Specifications</div>
+                <div class="detail-text">${comp.specsSummary}</div>
+              </div>
+
+              <div class="detail-section">
+                <div class="detail-label">Primary Uses</div>
+                <div class="detail-text">${comp.applicationsSummary}</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="show-more-btn" onclick="openModal(${comp.id})">Open Deep Technical Specs</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function searchComponents() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = componentsData.filter(c => 
+        c.name.toLowerCase().includes(query) ||
+        c.principle.toLowerCase().includes(query) ||
+        c.specsSummary.toLowerCase().includes(query) ||
+        c.applicationsSummary.toLowerCase().includes(query)
+      );
+      renderComponents(filtered);
+    }
+
+    function openModal(id) {
+      const comp = componentsData.find(c => c.id === id);
+      if (!comp) return;
+
+      document.getElementById('modalTitle').textContent = comp.name;
+      document.getElementById('modalIconContainer').innerHTML = comp.iconSvg;
+      document.getElementById('modalWorking').textContent = comp.detailedWorking;
+      document.getElementById('modalPinout').textContent = comp.pinout;
+
+      const specsList = document.getElementById('modalSpecs');
+      specsList.innerHTML = comp.specs.map(s => `<li>${s}</li>`).join('');
+
+      const appsList = document.getElementById('modalApps');
+      appsList.innerHTML = comp.apps.map(a => `<li>${a}</li>`).join('');
+
+      const safetyList = document.getElementById('modalSafety');
+      safetyList.innerHTML = comp.safety.map(s => `<li>${s}</li>`).join('');
+
+      document.getElementById('compModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('compModal').style.display = 'none';
+    }
+
+    window.onclick = function(e) {
+      const modal = document.getElementById('compModal');
+      if (e.target === modal) closeModal();
+    };
+
+    // Initial Render
+    renderComponents(componentsData);
+  </script>
+</body>
+</html>
+
+<!-- ====================== FOOTER ====================== -->
+<footer style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 40px 20px 30px; margin-top: 80px; text-align: center; border-top: 1px solid rgba(96, 165, 250, 0.3);">
+  <div style="max-width: 800px; margin: 0 auto;">
+    
+    <a href="https://youtube.com/" target="_blank" 
+       style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(to right, #ff0000, #cc0000); color: white; padding: 16px 36px; border-radius: 50px; font-size: 1.15rem; font-weight: 600; text-decoration: none; box-shadow: 0 10px 25px rgba(255,0,0,0.4); transition: all 0.3s;">
+      <span style="font-size: 1.4rem;">▶</span> 
+      Follow Us on YouTube
+    </a>
+
+    <p style="color: #94a3b8; margin-top: 18px; font-size: 1.05rem;">
+      PM SHRI KV INS Chilika ATL 
+    </p>
+    
+    <p style="color: #64748b; margin-top: 8px; font-size: 0.95rem;">
+      Stay updated with our latest activities, innovations & student achievements
+    </p>
+
+  </div>
+</footer>

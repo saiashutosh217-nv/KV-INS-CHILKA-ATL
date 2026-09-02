@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Your Website</title>
+  
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Your content -->
+</body>
+</html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PM SHRI Kendriya Vidyalaya INS Chilka</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Segoe UI", "Noto Sans", Arial, sans-serif;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: #0a4d8c;
+      height: 32px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20px;
+      gap: 15px;
+    }
+
+    .top-bar svg {
+      width: 17px;
+      height: 17px;
+      fill: #ffffff;
+      opacity: 0.9;
+      cursor: pointer;
+    }
+
+    /* Main Header */
+    .header {
+      background: linear-gradient(90deg, #0a5ca8 0%, #0c8a9e 50%, #0a9e8a 100%);
+      color: #ffffff;
+      padding: 12px 40px;          /* side padding thoda zyada */
+      display: flex;
+      align-items: center;
+      justify-content: center;     /* center aligned */
+      gap: 20px;                   /* logos aur text ke beech gap control */
+    }
+
+    /* Left Logo */
+    .left-logo {
+      width: 195px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .left-logo img {
+      width: 200px;
+      height: auto;
+      display: block;
+      margin: 0 auto 4px;
+    }
+
+    .left-logo .logo-text {
+      font-size: 10px;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* Center Content */
+    .center-content {
+      text-align: center;
+      max-width: 620px;
+    }
+
+    .ministry {
+      font-size: 13.5px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .hindi-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      line-height: 1.25;
+    }
+
+    .english-title {
+      font-size: 19.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .codes {
+      font-size: 12.5px;
+      margin-bottom: 4px;
+      opacity: 0.95;
+    }
+
+    .autonomous {
+      font-size: 12px;
+      opacity: 0.92;
+      line-height: 1.35;
+    }
+
+    /* Right Logo */
+    .right-logo {
+      width: 195px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .right-logo img {
+      width: 200px;
+      height: auto;
+      display: block;
+      margin: 0 auto 3px;
+    }
+
+    .right-logo .logo-text {
+      font-size: 9.5px;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Icons -->
+  <div class="top-bar">
+    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+
+    <!-- Left Logo -->
+    <div class="left-logo">
+      <img src=" KV L.svg" alt="KVS Logo">
+      <div class="logo-text">
+        यत्र विश्वं भवत्येकनीडम्<br>
+        केन्द्रीय विद्यालय संगठन
+      </div>
+    </div>
+
+    <!-- Center Text -->
+    <div class="center-content">
+      <div class="ministry">शिक्षा मंत्रालय Ministry of Education</div>
+      <div class="hindi-title">पीएम श्री केन्द्रीय विद्यालय भा. नौ. पो. चिल्का</div>
+      <div class="english-title">PM SHRI KENDRIYA VIDYALAYA INS CHILKA</div>
+      <div class="codes">KV Code: 1161, CBSE Affiliation No.: 1500011, CBSE School Code: 19113</div>
+      <div class="autonomous">
+        An autonomous body under the Ministry of Education,<br>
+        Government of India
+      </div>
+    </div>
+
+    <!-- Right Logo -->
+    <div class="right-logo">
+      <img src="MM.png" alt="PM SHRI Logo">
+      <div class="logo-text">
+        PM SHRI<br>
+        Pradhan Mantri Schools<br>
+        for Rising India
+      </div>
+    </div>
+
+  </header>
+
+</body>
+</html>
+
+
+<style>
+  .atl-tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: #0f172a;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .atl-tab-btn {
+    flex: 1;
+    min-width: 130px;
+    padding: 13px 16px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.25s ease;
+  }
+
+  .atl-tab-btn:hover {
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .atl-tab-btn.active {
+    background: linear-gradient(90deg, #22d3ee, #4ade80);
+    color: #0f172a;
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+  }
+
+  @media (max-width: 700px) {
+    .atl-tab-btn {
+      flex: 1 1 45%;
+      font-size: 13.5px;
+    }
+  }
+</style>
+
+<div class="atl-tab-buttons">
+  <a href="web.html" class="atl-tab-btn">HOME</a>
+  <a href="about.html" class="atl-tab-btn active">ABOUT</a>
+  <a href="basic electronic componets.html" class="atl-tab-btn">ELECTRONIC COMPONENTS</a>
+  <a href="projects.html" class="atl-tab-btn">PROJECTS</a>
+  <a href="test.html" class="atl-tab-btn">ATL MODULES</a>
+<a href="Achivements.html" class="atl-tab-btn">ACHIVMENTS</a>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .atl-box {
+    max-width: 1080px;         
+    width: 200%;
+    margin: 0 auto;
+    background: linear-gradient(160deg, #0f172a, #1e293b);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-radius: 20px;
+    padding: 36px 42px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .atl-box .title {
+    color: #4ade80;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .atl-box .point {
+    margin-bottom: 24px;
+  }
+
+  .atl-box .point:last-child {
+    margin-bottom: 0;
+  }
+
+  .atl-box .point strong {
+    color: #22d3ee;
+    display: block;
+    font-size: 17.5px;
+    margin-bottom: 6px;
+  }
+
+  .atl-box .point p {
+    color: #cbd5e1;
+    font-size: 15.2px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @media (max-width: 800px) {
+    .atl-box {
+      max-width: 100%;
+      padding: 28px 22px;
+    }
+    .atl-box .title {
+      font-size: 24px;
+    }
+  }
+</style>
+
+<div class="atl-box">
+  <div class="title"> ATAL TINKERING LAB</div>
+
+  <div class="point">
+    <strong>1. Innovation Hub</strong>
+    <p>The ATL Lab is a center for innovation and creativity. Students are encouraged to explore new ideas. They learn by designing and building projects. The lab promotes practical learning experiences.</p>
+  </div>
+
+  <div class="point">
+    <strong>2. Hands-on Learning</strong>
+    <p>Students learn through experiments and activities. They work with real tools and equipment. Learning becomes more interactive and engaging. This helps in better understanding of concepts.</p>
+  </div>
+
+  <div class="point">
+    <strong>3. Electronic Components</strong>
+    <p>The lab provides various electronic components. Students use sensors, motors, LEDs, and circuits. They create innovative electronic projects. This develops technical skills and creativity.</p>
+  </div>
+
+  <div class="point">
+    <strong>4. Computer & Laptop Facilities</strong>
+    <p>Computers and laptops are available for research. Students learn coding and programming skills. They explore new technologies and software tools for innovation.</p>
+  </div>
+
+  <div class="point">
+    <strong>5. Project Based Learning</strong>
+    <p>Students work on real-life problem solving projects. They design, prototype and test their ideas. This builds confidence and practical knowledge.</p>
+  </div>
+
+  <div class="point">
+    <strong>6. Future Ready Skills</strong>
+    <p>The lab prepares students for careers in STEM. It develops critical thinking, teamwork and creativity needed for the future.</p>
+  </div>
+</div>
+
+
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Leadership Team</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background: #0d0d0d;
+    color: #ffffff;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    color: #00d4aa;
+  }
+
+  /* ===== Cards Grid ===== */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;          /* Mobile: 1 card */
+    gap: 30px;
+  }
+
+  /* Computer / Tablet: 2 cards side by side */
+  @media (min-width: 900px) {
+    .cards-grid {
+      grid-template-columns: 1fr 1fr;    /* 2 cards */
+    }
+  }
+
+  /* ===== Single Card Style ===== */
+  .staff-card {
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid #2a2a2a;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .staff-card:hover {
+    border-color: #00d4aa;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 212, 170, 0.18);
+  }
+
+  .photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #00d4aa;
+    overflow: hidden;
+    background: #222;
+    margin-bottom: 20px;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info h2 {
+    font-size: 1.35rem;
+    margin-bottom: 6px;
+    color: #ffffff;
+  }
+
+  .info .designation {
+    color: #00d4aa;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .info p {
+    color: #cccccc;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+    text-align: left;          /* bio left aligned looks better */
+  }
+
+  .read-more {
+    display: inline-block;
+    background: #ff6b00;
+    color: white;
+    padding: 11px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s;
+  }
+
+  .read-more:hover {
+    background: #e55f00;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Our Leadership Team</h1>
+
+  <div class="cards-grid">
+
+    <!-- PRINCIPAL -->
+    <div class="staff-card">
+      <div class="photo">
+        <img src="principal.jpg" alt="Shri Subash Chandra Jena">
+      </div>
+      <div class="info">
+        <h2>Shri Subhash Chandra Jena</h2>
+        <div class="designation">Principal</div>
+        <p>
+          Shri Subash Chandra Jena is a dedicated educational leader with a strong commitment to 
+          academic excellence and holistic student development. He firmly believes that education should 
+          inspire students to become responsible citizens, lifelong learners, and future leaders.
+        </p>
+        <a href="subashchandra01.html" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- HEADMASTER -->
+    <div class="staff-card">
+      <div class="photo">
+        <img src="HM.jpg" alt="Amit Tokas">
+      </div>
+      <div class="info">
+        <h2>Amit Tokas</h2>
+        <div class="designation">Headmaster</div>
+        <p>
+          Amit Tokas is a highly committed Headmaster who believes in providing quality education through 
+          discipline, dedication, and innovation. He works closely with students, teachers, and parents to 
+          ensure the overall development of every learner.
+        </p>
+        <a href="amitokas.html" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- VICE PRINCIPAL -->
+    <div class="staff-card">
+      <div class="photo">
+        <img src="VICE PRINCIPAL.jpEg" alt="Shri Subash Chandra Jena">
+      </div>
+      <div class="info">
+        <h2>Shri Subash Chandra Jena</h2>
+        <div class="designation">Vice Principal</div>
+        <p>
+          As the Vice Principal, Shri Subash Chandra Jena plays a vital role in maintaining academic 
+          excellence and smooth administration within the institution. He works tirelessly to support teachers, 
+          motivate students, and strengthen educational standards.
+        </p>
+        <a href="subashchandra02.html" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- ATL Instructor -->
+    <div class="staff-card">
+      <div class="photo">
+        <img src="atl.jpg" alt="">
+      </div>
+      <div class="info">
+        <h2>Jiban Raja Mallick</h2>
+        <div class="designation">ATL Instructor</div>
+        <p>
+          Jiban Malick serves as the ATL Incharge and is passionate about fostering innovation, creativity, 
+          and scientific thinking among students. He encourages learners to explore robotics, coding, electronics, 
+          and emerging technologies through hands-on projects.
+        </p>
+        <a href="jibanmalick.html" class="read-more">Read More</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know About Our ATL Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
+                        url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+        
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-blue-400">Know About Our ATL Lab</h1>
+            <p class="text-2xl text-gray-300 mt-3">Atal Tinkering Lab</p>
+        </div>
+
+        <!-- Hero -->
+        <div class="hero-bg h-[500px] rounded-3xl flex items-center justify-center text-center mb-16 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70"></div>
+            <div class="relative z-10 px-6">
+                <div class="inline-block bg-green-500 text-black font-bold text-sm px-8 py-3 rounded-full mb-6">
+                    NITI Aayog Initiative
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold leading-tight">Empowering Young Innovators</h2>
+            </div>
+        </div>
+
+        <!-- About ATL Lab - 4 Lines -->
+        <div class="bg-gray-900 rounded-3xl p-10 md:p-16 mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8 text-green-400">About Our ATL Lab</h2>
+            <div class="max-w-3xl mx-auto space-y-6 text-lg text-gray-300 leading-relaxed">
+                <p>1. Innovation Hub <br>
+The ATL Lab is a center for innovation and creativity. Students are encouraged to explore new ideas.They learn by designing and building projects.The lab promotes practical learning experiences.</p>
+
+
+2. Hands-on Learning<br>
+
+
+Students learn through experiments and activities.They work with real tools and equipment.
+Learning becomes more interactive and engaging.This helps in better understanding of concepts.</p>
+
+
+3. Electronic Components<br>
+
+
+The lab provides various electronic components.Students use sensors, motors, LEDs, and circuits.
+They create innovative electronic projects.This develops technical skills and creativity.</p>
+‑‑‑
+
+4. Computer and Laptop Facilities<br>
+
+
+Computers and laptops are available for research.Students learn coding and programming skills.
+They explore new technologies and applications.Digital learning is encouraged in the lab.</p>
+
+
+5. Smart Classroom Environment<br>
+
+
+The ATL Lab is equipped with a projector.Interactive presentations make learning easier.
+Students can visualize concepts effectively.It enhances classroom participation and understanding.</p>
+
+
+6. Guidance by ATL Instructor<br>
+
+
+Expert guidance is provided by the ATL Instructor.Students receive support during projects.
+Concepts are explained in a simple manner.This helps learners gain confidence and skills.</p>
+
+
+7. Doubt-Solving Sessions<br>
+
+
+Special doubt-clearing sessions are conducted regularly.Students can ask questions freely.
+Individual attention is provided when needed.This ensures better learning outcomes.</p>
+
+
+8. Future-Ready Skills<br>
+
+
+The ATL Lab develops 21st-century skills.Students learn creativity and critical thinking.
+Teamwork and problem-solving are encouraged.These skills prepare them for future careers.</p>
+            </div>
+        </div>
+
+                   <!-- Read More -->
+            <div class="text-center mt-12">
+                <a href="vision.html" 
+                   class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 text-white text-xl font-semibold px-12 py-5 rounded-3xl transition-all">
+                    <span>Read More About Our ATL Lab</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+<style> .max-w-3xl p{
+    margin-bottom: 15px;
+}
+
+.max-w-3xl p:last-child{
+    margin-bottom: 0;
+}.</style>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glorious Moments - Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        .gallery-container {
+            background: #111827;
+            color: white;
+        }
+        .tab-active {
+            background-color: #22c55e;
+            color: white;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            background-color: #1f2937;
+            color: white;
+        }
+        .photo-card {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .photo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3);
+        }
+        .delete-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(239, 68, 68, 0.95);
+            color: white;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        .photo-card:hover .delete-btn {
+            opacity: 1;
+        }
+        .carousel::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-gray-950 text-white">
+    <div class="max-w-7xl mx-auto gallery-container py-12 px-6 min-h-screen">
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <h1 class="text-5xl font-bold tracking-tight text-blue-400">Glorious Moments</h1>
+            <p class="text-gray-400 mt-2 text-lg">Cherished memories from our school</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex justify-center mb-10">
+            <div class="inline-flex rounded-xl overflow-hidden border border-gray-700 bg-gray-900">
+                <button onclick="switchTab(0)" id="tab-photos"
+                    class="tab-active px-10 py-4 text-sm font-semibold flex items-center gap-2">
+                    <i class="fas fa-images"></i> PHOTOS
+                </button>
+                <button onclick="switchTab(1)" id="tab-videos"
+                    class="tab-inactive px-10 py-4 text-sm font-semibold flex items-center gap-2">
+                    <i class="fas fa-video"></i> VIDEOS
+                </button>
+            </div>
+        </div>
+
+        <!-- PHOTOS SECTION -->
+        <div id="photos-section">
+            <!-- Main Upload Area - Always Visible -->
+            <div class="bg-gray-900 border-2 border-dashed border-gray-600 hover:border-green-500 rounded-3xl p-16 text-center mb-12 transition-colors">
+                <input type="file" id="image-upload" accept="image/*" multiple class="hidden" onchange="handleUpload(event)">
+                <label for="image-upload" class="cursor-pointer block">
+                    <i class="fas fa-cloud-upload-alt text-7xl text-gray-400 mb-6"></i>
+                    <p class="text-2xl font-semibold mb-2">Upload Your Memories</p>
+                    <p class="text-gray-400">Click here to add photos from events • PNG, JPG, JPEG supported</p>
+                </label>
+            </div>
+
+            <!-- Gallery Content - Shown only when images exist -->
+            <div id="gallery-content" class="hidden">
+                <!-- Horizontal Carousel -->
+                <div class="relative mb-12">
+                    <div id="carousel" class="flex gap-6 overflow-x-auto carousel pb-6 snap-x snap-mandatory">
+                        <!-- JS populated -->
+                    </div>
+                    <button onclick="scrollCarousel(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black p-4 rounded-full text-white">
+                        <i class="fas fa-chevron-left text-2xl"></i>
+                    </button>
+                    <button onclick="scrollCarousel(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black p-4 rounded-full text-white">
+                        <i class="fas fa-chevron-right text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- All Moments -->
+                <div class="mb-6 flex justify-between items-center">
+                    <h2 class="text-2xl font-semibold">All Moments</h2>
+                    <div class="flex gap-3">
+                        <button onclick="exploreGallery()" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-2xl font-medium flex items-center gap-2">
+                            <i class="fas fa-th-large"></i> EXPLORE GALLERY
+                        </button>
+                        <button onclick="clearAllImages()" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-2xl font-medium flex items-center gap-2">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                    </div>
+                </div>
+
+                <div id="photo-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- JS populated -->
+                </div>
+            </div>
+        </div>
+
+        <!-- VIDEOS SECTION -->
+        <div id="videos-section" class="hidden text-center py-20">
+            <i class="fas fa-video text-6xl text-gray-500 mb-6"></i>
+            <h3 class="text-3xl font-semibold">Video Gallery</h3>
+            <p class="text-gray-400 mt-3">Coming soon...</p>
+        </div>
+    </div>
+
+    <!-- Full Gallery Modal -->
+    <div id="gallery-modal" class="hidden fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4">
+        <div class="max-w-6xl w-full bg-gray-900 rounded-3xl max-h-[90vh] overflow-hidden">
+            <div class="sticky top-0 bg-gray-900 p-6 border-b border-gray-700 flex justify-between items-center">
+                <h2 class="text-3xl font-bold">Full Gallery</h2>
+                <button onclick="closeModal()" class="text-5xl hover:text-red-400">×</button>
+            </div>
+            <div id="modal-grid" class="p-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 overflow-auto max-h-[75vh]">
+                <!-- JS populated -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let galleryImages = [];
+
+        function loadGallery() {
+            const saved = localStorage.getItem('gloriousMoments');
+            if (saved) galleryImages = JSON.parse(saved);
+            renderAll();
+        }
+
+        function saveGallery() {
+            localStorage.setItem('gloriousMoments', JSON.stringify(galleryImages));
+        }
+
+        function toggleGalleryVisibility() {
+            const content = document.getElementById('gallery-content');
+            content.classList.toggle('hidden', galleryImages.length === 0);
+        }
+
+        function deleteImage(index) {
+            if (confirm("Delete this image?")) {
+                galleryImages.splice(index, 1);
+                saveGallery();
+                renderAll();
+            }
+        }
+
+        function clearAllImages() {
+            if (confirm("Clear ALL images? This cannot be undone.")) {
+                galleryImages = [];
+                saveGallery();
+                renderAll();
+            }
+        }
+
+        function renderCarousel() {
+            const carousel = document.getElementById('carousel');
+            carousel.innerHTML = galleryImages.map((src, i) => `
+                <div class="min-w-[340px] snap-center relative photo-card">
+                    <div class="rounded-3xl overflow-hidden border border-gray-700">
+                        <img src="${src}" class="w-full aspect-video object-cover cursor-pointer" onclick="viewImage('${src}')">
+                    </div>
+                    <button onclick="deleteImage(${i}); event.stopImmediatePropagation()" class="delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderPhotoGrid() {
+            const grid = document.getElementById('photo-grid');
+            grid.innerHTML = galleryImages.map((src, i) => `
+                <div class="photo-card bg-gray-900 rounded-3xl overflow-hidden cursor-pointer relative" onclick="viewImage('${src}')">
+                    <img src="${src}" class="w-full aspect-video object-cover">
+                    <button onclick="deleteImage(${i}); event.stopImmediatePropagation()" class="delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderModalGrid() {
+            const modalGrid = document.getElementById('modal-grid');
+            modalGrid.innerHTML = galleryImages.map((src, i) => `
+                <div class="photo-card bg-gray-900 rounded-3xl overflow-hidden cursor-pointer relative" onclick="viewImage('${src}')">
+                    <img src="${src}" class="w-full aspect-video object-cover">
+                    <button onclick="deleteImage(${i}); event.stopImmediatePropagation()" class="delete-btn">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderAll() {
+            renderCarousel();
+            renderPhotoGrid();
+            renderModalGrid();
+            toggleGalleryVisibility();
+        }
+
+        function handleUpload(e) {
+            const files = e.target.files;
+            if (!files.length) return;
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    galleryImages.unshift(ev.target.result);
+                    saveGallery();
+                    renderAll();
+                };
+                reader.readAsDataURL(file);
+            });
+            e.target.value = '';
+        }
+
+        function viewImage(src) {
+            const modal = document.createElement('div');
+            modal.className = "fixed inset-0 bg-black/95 flex items-center justify-center z-[100]";
+            modal.innerHTML = `
+                <div class="relative max-w-5xl w-full p-4">
+                    <button onclick="this.parentElement.parentElement.remove()" class="absolute -top-4 -right-4 text-5xl text-white hover:text-red-400">×</button>
+                    <img src="${src}" class="w-full rounded-3xl shadow-2xl">
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        function scrollCarousel(dir) {
+            document.getElementById('carousel').scrollBy({ left: dir * 360, behavior: 'smooth' });
+        }
+
+        function switchTab(n) {
+            document.getElementById('photos-section').classList.toggle('hidden', n !== 0);
+            document.getElementById('videos-section').classList.toggle('hidden', n !== 1);
+            
+            document.getElementById('tab-photos').classList.toggle('tab-active', n === 0);
+            document.getElementById('tab-photos').classList.toggle('tab-inactive', n !== 0);
+            document.getElementById('tab-videos').classList.toggle('tab-active', n === 1);
+            document.getElementById('tab-videos').classList.toggle('tab-inactive', n !== 1);
+        }
+
+        function exploreGallery() {
+            document.getElementById('gallery-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('gallery-modal').classList.add('hidden');
+        }
+
+        window.onload = () => {
+            loadGallery();
+            document.addEventListener('keydown', e => {
+                if (e.key === "Escape") closeModal();
+            });
+        };
+    </script>
+</body>
+</html>
+
+
+<!-- ====================== FOOTER ====================== -->
+<footer style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 40px 20px 30px; margin-top: 80px; text-align: center; border-top: 1px solid rgba(96, 165, 250, 0.3);">
+  <div style="max-width: 800px; margin: 0 auto;">
+    
+    <a href="https://youtube.com/@atlkvchilika292?si=SvTogTGwDmEN7zco" target="_blank" 
+       style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(to right, #ff0000, #cc0000); color: white; padding: 16px 36px; border-radius: 50px; font-size: 1.15rem; font-weight: 600; text-decoration: none; box-shadow: 0 10px 25px rgba(255,0,0,0.4); transition: all 0.3s;">
+      <span style="font-size: 1.4rem;">▶</span> 
+      Follow Us on YouTube
+    </a>
+
+    <p style="color: #94a3b8; margin-top: 18px; font-size: 1.05rem;">
+      PM SHRI KV INS Chilika ATL 
+    </p>
+    
+    <p style="color: #64748b; margin-top: 8px; font-size: 0.95rem;">
+      Stay updated with our latest activities, innovations & student achievements
+    </p>
+
+  </div>
+</footer>

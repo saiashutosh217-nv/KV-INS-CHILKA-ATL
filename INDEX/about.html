@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PM SHRI KV INS Chilika ATL</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #071a2f, #0d3d66);
+    color: #e6f7ff;
+}
+
+/* SECTION */
+.section {
+    padding: 60px 8%;
+}
+
+h1 {
+    text-align: center;
+    color: #00e1ff;
+}
+
+/* ABOUT */
+.about {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(0,40,70,0.7);
+    padding: 30px;
+    border-radius: 15px;
+    line-height: 1.8;
+}
+
+/* SEARCH */
+.search-box {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.search-box input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* FLIP CARD */
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 20px;
+    backface-visibility: hidden;
+}
+
+/* FRONT */
+.flip-front {
+    background: rgba(0, 40, 70, 0.85);
+    border: 1px solid rgba(0,255,255,0.2);
+}
+
+/* BACK */
+.flip-back {
+    background: #00e1ff;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+.flip-card h2 {
+    color: #00e1ff;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    .flip-inner {
+        height: 300px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ABOUT SECTION -->
+<section class="section">
+<h1>ABOUT ATL - PM SHRI KV INS CHILIKA</h1>
+
+<div class="about">
+<p>
+The Atal Tinkering Lab (ATL) at PM SHRI Kendriya Vidyalaya INS Chilika is a dynamic innovation workspace established under NITI Aayog’s Atal Innovation Mission. It aims to foster creativity, curiosity, and imagination in young students by providing access to modern technological tools and hands-on learning experiences.
+</p>
+
+<p>
+The ATL is equipped with advanced resources such as robotics kits, microcontrollers, 3D printers, sensors, and electronic components. Students are encouraged to design, experiment, and build innovative solutions to real-world problems. The lab focuses on experiential learning, where students actively engage in making and tinkering rather than just theoretical study.
+</p>
+
+<p>
+At PM SHRI KV INS Chilika, ATL serves as a platform for nurturing future innovators, scientists, and engineers. Students participate in various activities including robotics training, coding sessions, IoT development, and national-level competitions. The lab promotes teamwork, critical thinking, and problem-solving skills essential for the 21st century.
+</p>
+
+<p>
+Through ATL, students transform their ideas into practical prototypes, gaining confidence and technical expertise. It plays a vital role in shaping young minds to become self-reliant and innovative contributors to society.
+</p>
+</div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section class="section">
+
+<h1>ATL Highlights & Activities</h1>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="search" placeholder="Search activities..." onkeyup="searchCards()">
+</div>
+
+<div class="grid" id="cards">
+
+<!-- CARD -->
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<h2>Advanced Robotics Training</h2>
+<p>Students of Class VI to X receive intensive training in robotics and automation. They learn to build smart robots using Arduino, sensors, and motors. The program focuses on problem-solving and logical thinking through practical projects.</p>
+</div>
+<div class="flip-back">
+<p>
+In this program, students of Class VI to X work on multiple levels of robotics — from basic line-follower robots to advanced obstacle-avoiding and voice-controlled bots. They understand electronics, coding in C++, sensor integration, and mechanical design. Many students have successfully demonstrated their robots in inter-school competitions and naval technology exhibitions at INS Chilika.
+</p>
+</div>
+</div>
+</div>
+
+<!-- CARD -->
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<h2>IoT & Drone Technology</h2>
+<p>Hands-on workshops on Internet of Things and Drone building. Students design smart systems for agriculture, home automation, and disaster management using ESP32 and advanced sensors.</p>
+</div>
+<div class="flip-back">
+<p>
+Our IoT and Drone wing is one of the most advanced sections in the lab. Students learn to develop real-time monitoring systems, smart irrigation solutions, and custom drones. They use cloud platforms for data logging and control systems remotely. Several projects have been appreciated by senior officers during technology demonstration days organized at the station.
+</p>
+</div>
+</div>
+</div>
+
+<!-- CARD -->
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<h2>3D Design & Prototyping</h2>
+<p>Students learn professional 3D modeling using Fusion 360 and bring their ideas to life using high-precision 3D printers. Focus is on functional and innovative product design.</p>
+</div>
+<div class="flip-back">
+<p>
+This activity helps students convert their imagination into physical objects. They design school utility products, educational models, and engineering prototypes. The lab has produced many useful items like ergonomic pencil holders, science lab equipment, and eco-friendly gadgets. Students also participate in design challenges where they solve everyday problems creatively.
+</p>
+</div>
+</div>
+</div>
+
+<!-- CARD -->
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<h2>Innovation Challenges</h2>
+<p>Regular innovation challenges and hackathons are conducted where students identify problems and develop working prototypes using STEAM concepts.</p>
+</div>
+<div class="flip-back">
+<p>
+Every month, ATL organizes theme-based innovation challenges. Students work in teams to find solutions for local and global issues such as waste management, water conservation, traffic safety, and renewable energy. They go through the complete process — idea generation, research, prototyping, testing, and presentation. These activities greatly improve their confidence and presentation skills.
+</p>
+</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<script>
+function searchCards() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.getElementById("cards").getElementsByClassName("flip-card");
+
+    for (let i = 0; i < cards.length; i++) {
+        let text = cards[i].innerText.toLowerCase();
+        cards[i].style.display = text.includes(input) ? "block" : "none";
+    }
+}
+</script>
+
+</body>
+</html>
+
+<!-- ====================== FOOTER ====================== -->
+<footer style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 40px 20px 30px; margin-top: 80px; text-align: center; border-top: 1px solid rgba(96, 165, 250, 0.3);">
+  <div style="max-width: 800px; margin: 0 auto;">
+    
+    <a href="https://youtube.com/@atlkvchilika292?si=SvTogTGwDmEN7zco" target="_blank" 
+       style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(to right, #ff0000, #cc0000); color: white; padding: 16px 36px; border-radius: 50px; font-size: 1.15rem; font-weight: 600; text-decoration: none; box-shadow: 0 10px 25px rgba(255,0,0,0.4); transition: all 0.3s;">
+      <span style="font-size: 1.4rem;">▶</span> 
+      Follow Us on YouTube
+    </a>
+
+    <p style="color: #94a3b8; margin-top: 18px; font-size: 1.05rem;">
+      PM SHRI KV INS Chilika ATL 
+    </p>
+    
+    <p style="color: #64748b; margin-top: 8px; font-size: 0.95rem;">
+      Stay updated with our latest activities, innovations & student achievements
+    </p>
+
+  </div>
+</footer>
